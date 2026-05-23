@@ -1,0 +1,142 @@
+{
+  "task": "regression",
+  "target": "cross_presentation_pct",
+  "best_model": "RandomForest",
+  "features": [
+    "polymerization_degree_X",
+    "Mn",
+    "pdi",
+    "particle_size_nm",
+    "pka",
+    "X_dp",
+    "R_B",
+    "R_C1",
+    "R_C10",
+    "R_C12",
+    "R_C18",
+    "R_C3",
+    "R_C6",
+    "R_C8",
+    "carbon_length",
+    "LogP",
+    "endosomal_alignment",
+    "hydrophobic_activation",
+    "hydrophobic_density",
+    "dp_per_carbon",
+    "chain_dp_interaction",
+    "endosomal_hydro_balance",
+    "hydrophobic_activation_sq",
+    "pka_sq"
+  ],
+  "train_descriptor_ranges": {
+    "polymerization_degree_X": {
+      "min": 10.0,
+      "max": 40.0
+    },
+    "Mn": {
+      "min": 21.2,
+      "max": 33.7
+    },
+    "pdi": {
+      "min": 1.02,
+      "max": 1.08
+    },
+    "particle_size_nm": {
+      "min": 25.58,
+      "max": 83.36
+    },
+    "pka": {
+      "min": 5.99,
+      "max": 7.0
+    },
+    "X_dp": {
+      "min": 10.0,
+      "max": 40.0
+    },
+    "R_B": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "R_C1": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "R_C10": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "R_C12": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "R_C18": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "R_C3": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "R_C6": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "R_C8": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "carbon_length": {
+      "min": 1.0,
+      "max": 18.0
+    },
+    "LogP": {
+      "min": 0.6361,
+      "max": 7.267800000000007
+    },
+    "endosomal_alignment": {
+      "min": 0.0099999999999997,
+      "max": 0.7000000000000002
+    },
+    "hydrophobic_activation": {
+      "min": 0.2544400000000002,
+      "max": 10.24759800000001
+    },
+    "hydrophobic_density": {
+      "min": 0.2850028571428571,
+      "max": 0.6361
+    },
+    "dp_per_carbon": {
+      "min": 0.5555555555555556,
+      "max": 40.0
+    },
+    "chain_dp_interaction": {
+      "min": 10.0,
+      "max": 720.0
+    },
+    "endosomal_hydro_balance": {
+      "min": 0.0281939399999994,
+      "max": 3.1767553799999995
+    },
+    "hydrophobic_activation_sq": {
+      "min": 0.0647397136000001,
+      "max": 105.01326476960422
+    },
+    "pka_sq": {
+      "min": 35.880100000000006,
+      "max": 49.0
+    }
+  },
+  "oof_metrics": {
+    "model": "RandomForest",
+    "fold": "OOF_SUMMARY",
+    "mae": 1.3365849203482147,
+    "rmse": 1.705784588458936,
+    "r2": 0.1701535672007094,
+    "best_params": "{'selector__k': 'all', 'selector': SelectKBest(score_func=<function mutual_info_regression at 0x000001FCBE703380>), 'model__min_samples_leaf': 2, 'model__max_features': 'sqrt', 'model__max_depth': None}",
+    "spearman": 0.4153606469649007,
+    "best_params_full_data": "{'selector__k': 'all', 'selector': SelectKBest(score_func=<function mutual_info_regression at 0x000001FCBE703380>), 'model__min_samples_leaf': 2, 'model__max_features': 'sqrt', 'model__max_depth': None}"
+  },
+  "train_rmse_full_fit": 0.8595641675679105,
+  "fit_diagnosis": "possible_overfitting",
+  "note": "Use for design prioritization only. Wetlab validation remains required, especially outside training ranges."
+}

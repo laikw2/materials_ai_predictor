@@ -1,0 +1,15 @@
+model,threshold,roc_auc,pr_auc,accuracy,precision,recall,f1,best_params_full_data
+LogisticRegression,6.218999999999999,0.8359375,0.7219539855569266,0.78125,0.7368421052631579,0.875,0.8,"{'selector': SelectFromModel(estimator=LogisticRegression(C=0.5, penalty='l1',
+                                             random_state=42,
+                                             solver='liblinear')), 'model__penalty': 'l2', 'model__C': 0.05}"
+SVC,6.218999999999999,0.765625,0.7331709028308293,0.71875,0.7058823529411765,0.75,0.7272727272727273,"{'selector__k': 10, 'selector': SelectKBest(score_func=<function mutual_info_classif at 0x00000257CB5A3600>), 'model__kernel': 'rbf', 'model__gamma': 'scale', 'model__C': 0.1}"
+LightGBM,6.218999999999999,0.740234375,0.7110330246021035,0.75,0.7,0.875,0.7777777777777778,"{'selector': SelectFromModel(estimator=LogisticRegression(C=0.5, penalty='l1',
+                                             random_state=42,
+                                             solver='liblinear')), 'model__reg_lambda': 1, 'model__reg_alpha': 0.1, 'model__num_leaves': 5, 'model__n_estimators': 30, 'model__min_child_samples': 2, 'model__max_depth': 1, 'model__learning_rate': 0.03}"
+GradientBoosting,6.218999999999999,0.734375,0.7173319735819735,0.6875,0.65,0.8125,0.7222222222222222,"{'selector__k': 10, 'selector': SelectKBest(score_func=<function mutual_info_classif at 0x00000257CB5A3600>), 'model__subsample': 0.8, 'model__n_estimators': 50, 'model__max_depth': 1, 'model__learning_rate': 0.08}"
+SGDLogistic,6.218999999999999,0.734375,0.6497470733708155,0.71875,0.7058823529411765,0.75,0.7272727272727273,"{'selector__n_features_to_select': 10, 'selector': RFE(estimator=LogisticRegression(C=0.5, random_state=42, solver='liblinear'),
+    step=0.25), 'model__penalty': 'l2', 'model__alpha': 0.01}"
+ExtraTrees,6.218999999999999,0.7109375,0.6160990438225346,0.78125,0.7142857142857143,0.9375,0.8108108108108109,"{'selector__k': 10, 'selector': SelectKBest(score_func=<function mutual_info_classif at 0x00000257CB5A3600>), 'model__min_samples_leaf': 2, 'model__max_features': 'sqrt', 'model__max_depth': 2}"
+RandomForest,6.218999999999999,0.703125,0.5983784508262062,0.75,0.7,0.875,0.7777777777777778,"{'selector__k': 'all', 'selector': SelectKBest(score_func=<function mutual_info_classif at 0x00000257CB5A3600>), 'model__min_samples_leaf': 2, 'model__max_features': 'sqrt', 'model__max_depth': 2}"
+XGBoost,6.218999999999999,0.681640625,0.6708565002793577,0.625,0.6,0.75,0.6666666666666666,"{'selector__n_features_to_select': 10, 'selector': RFE(estimator=LogisticRegression(C=0.5, random_state=42, solver='liblinear'),
+    step=0.25), 'model__subsample': 0.8, 'model__reg_lambda': 1, 'model__reg_alpha': 0.1, 'model__n_estimators': 50, 'model__max_depth': 2, 'model__learning_rate': 0.08, 'model__colsample_bytree': 0.8}"
