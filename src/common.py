@@ -127,7 +127,7 @@ def make_selector_grid(task: str, n_features: int) -> list[dict[str, Any]]:
         rfe_est = LogisticRegression(solver="liblinear", C=0.5, random_state=42)
 
     return [
-        {"selector": [SelectKBest(score_func=mi.score_func)], "selector__k": [k_mid, k_all]},
+        {"selector": [SelectKBest(score_func=mi.score_func)], "selector__k": [k_mid]},
         {"selector": [RFE(estimator=rfe_est, step=0.25)], "selector__n_features_to_select": [k_mid]},
         {"selector": [lasso]},
     ]

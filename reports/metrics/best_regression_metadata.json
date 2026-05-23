@@ -129,14 +129,14 @@
   "oof_metrics": {
     "model": "RandomForest",
     "fold": "OOF_SUMMARY",
-    "mae": 1.3365849203482147,
-    "rmse": 1.705784588458936,
-    "r2": 0.1701535672007094,
-    "best_params": "{'selector__k': 'all', 'selector': SelectKBest(score_func=<function mutual_info_regression at 0x000001FCBE703380>), 'model__min_samples_leaf': 2, 'model__max_features': 'sqrt', 'model__max_depth': None}",
-    "spearman": 0.4153606469649007,
-    "best_params_full_data": "{'selector__k': 'all', 'selector': SelectKBest(score_func=<function mutual_info_regression at 0x000001FCBE703380>), 'model__min_samples_leaf': 2, 'model__max_features': 'sqrt', 'model__max_depth': None}"
+    "mae": 1.3786682182741183,
+    "rmse": 1.6732958883615712,
+    "r2": 0.20146336256706265,
+    "best_params": "{'selector__k': 10, 'selector': SelectKBest(score_func=<function mutual_info_regression at 0x000002A2910A3240>), 'model__min_samples_leaf': 2, 'model__max_features': 'sqrt', 'model__max_depth': 2}",
+    "spearman": 0.4509210907032904,
+    "best_params_full_data": "{'selector__k': 10, 'selector': SelectKBest(score_func=<function mutual_info_regression at 0x000002A2910A3240>), 'model__min_samples_leaf': 2, 'model__max_features': 'sqrt', 'model__max_depth': 2}"
   },
-  "train_rmse_full_fit": 0.8595641675679105,
-  "fit_diagnosis": "possible_overfitting",
+  "train_rmse_full_fit": 1.2371228018059273,
+  "fit_diagnosis": "reasonable_fit",
   "note": "Use for design prioritization only. Wetlab validation remains required, especially outside training ranges."
 }
