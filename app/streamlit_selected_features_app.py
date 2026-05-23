@@ -40,6 +40,18 @@ FEATURE_LABELS = {
     "chain_dp_interaction": "Chain-DP interaction",
 }
 
+FEATURE_DESCRIPTIONS = {
+    "pka": "Acid dissociation / buffering descriptor.",
+    "LogP": "Hydrophobicity descriptor.",
+    "endosomal_alignment": "Alignment with the endosomal activation window.",
+    "R_C10": "Use 1 if the candidate uses C10 R-group, otherwise 0.",
+    "R_C12": "Use 1 if the candidate uses C12 R-group, otherwise 0.",
+    "carbon_length": "Numeric alkyl carbon chain length.",
+    "hydrophobic_density": "Numeric normalized hydrophobicity per carbon descriptor.",
+    "dp_per_carbon": "Numeric polymerization degree per carbon descriptor.",
+    "chain_dp_interaction": "Numeric chain length multiplied by DP descriptor.",
+}
+
 
 def score_or_proba(estimator, X):
     if hasattr(estimator, "predict_proba"):
@@ -127,8 +139,12 @@ def main() -> None:
 
     st.subheader("Final Model")
     st.write(f"Regression model: **{meta.get('best_model', 'unknown')}**")
-    st.write("Selected transformed features used internally:")
-    st.code("\n".join(selected_features))
+    with st.expander("Show internal selected model features"):
+        st.write(
+            "`missing_*` entries are automatic missing-value indicators created by the trained imputer. "
+            "Users do not key these in as 0/1; they are generated automatically when the related numeric field is blank."
+        )
+        st.code("\n".join(selected_features))
 
     st.subheader("Required Inputs")
     st.write(
@@ -149,10 +165,13 @@ def main() -> None:
 
         with cols[i % 2]:
             if feature.startswith("R_"):
-                selected = st.selectbox(label, ["missing", 0, 1], index=0)
+                selected = st.selectbox(label, ["missing", 0, 1], index=0, help=FEATURE_DESCRIPTIONS.get(feature, ""))
                 values[feature] = np.nan if selected == "missing" else float(selected)
             else:
-                values[feature] = nullable_number(label, default, help_text)
+                combined_help = FEATURE_DESCRIPTIONS.get(feature, "")
+                if help_text:
+                    combined_help = f"{combined_help} {help_text}".strip()
+                values[feature] = nullable_number(label, default, combined_help)
 
     X = fill_full_schema(values, all_features)
 
